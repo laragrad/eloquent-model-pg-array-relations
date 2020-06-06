@@ -1,10 +1,10 @@
 {
-	"name" : "laragrad/eloquent-model-pg-relations",
+	"name" : "laragrad/eloquent-model-pg-array-relations",
 	"keywords" : [
 		"laravel",
 		"eloquent",
 		"postgresql",
-		"casts"
+		"relationship"
 	],
 	"type" : "package",
 	"license" : "MIT",
