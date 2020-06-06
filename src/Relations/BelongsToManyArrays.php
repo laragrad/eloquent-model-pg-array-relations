@@ -111,7 +111,7 @@ class BelongsToManyArrays extends PgArrayRelation
     {
         // Check for parent model relatedKey exists in child model arrayField
         return $query->select($columns)->whereRaw(
-            "{$this->query->qualifyColumn($this->arrayField)}{$this->getCastAs()} @> ARRAY[{$this->parent->qualifyColumn($this->relatedKey)}{$this->getCastAs()}]"
+            "{$this->query->qualifyColumn($this->arrayField)}{$this->getCastAs(true)} @> ARRAY[{$this->parent->qualifyColumn($this->relatedKey)}{$this->getCastAs()}]"
         );
     }
 
