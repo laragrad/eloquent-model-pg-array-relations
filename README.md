@@ -1,6 +1,9 @@
 # laragrad/eloquent-model-pg-array-relations
 
-This package provides a trait `\Laragrad\Models\Concerns\HasPgArrayRelations` that adds into `Eloquent\Model` some PostgreSQL specific fields cast types.
+This package provides a trait `\Laragrad\Models\Concerns\HasPgArrayRelations` that allows to use two specific relations:
+
+* **hasManyInArray**
+* **belongsToManyArray**
 
 ## Installing
 
