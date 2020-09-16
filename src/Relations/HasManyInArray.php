@@ -18,9 +18,16 @@ class HasManyInArray extends PgArrayRelation
     {
         if (static::$constraints) {
 
-            $arrayFieldValues = PgHelper::toPgArray($this->parent->{$this->arrayField});
-            $this->query->whereRaw("ARRAY[{$this->query->qualifyColumn($this->relatedKey)}] <@ '{$arrayFieldValues}'");
+            $parentValue = $this->parent->{$this->arrayField};
+            if (is_string($parentValue)) {
+                $parentValue = PgHelper::fromPgArray($parentValue);
+            }
 
+            if (!is_array($parentValue)) {
+                throw new \RuntimeException("Can't cast field value as array");
+            }
+
+            $this->query->whereIn($this->query->qualifyColumn($this->relatedKey), $this->parent->{$this->arrayField});
         }
     }
 
